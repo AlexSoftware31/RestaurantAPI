@@ -25,7 +25,8 @@ namespace RestaurantWebAPI.Controllers
             {
                 var token = JwtHelper.GenerateJwtToken(model.Username);
                 var expiryDate = DateTime.UtcNow.AddHours(1);
-                return Ok(new { token, expiryDate});
+                var issued = DateTime.UtcNow;
+                return Ok(new { token, expiryDate, issued});
             }
 
             return Unauthorized();
