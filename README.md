@@ -16,12 +16,6 @@ Una API RESTful para gestionar direcciones jerárquicas (país, provincia, munic
 - **Swagger / OpenAPI**
 
 ---
-# 🛠️ Cómo ejecutar
-
-1. **Clonar el repositorio**:
-
-  ```bash
-git clone https://github.com/tu_usuario/addresses-handler-api.git
 
    
 
