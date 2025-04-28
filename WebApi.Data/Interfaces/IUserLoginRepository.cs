@@ -4,6 +4,6 @@ namespace WebApi.Data.Interfaces
 {
     public interface IUserLoginRepository: IGenericRepository<UserLogin>
     {
-        Task<bool> IsAuthorized(UserLogin userLogin);
+        Task<bool> IsAuthorized(UserLogin userLogin); 
     }
 }

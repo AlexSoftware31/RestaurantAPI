@@ -8,9 +8,14 @@ namespace WebApi.Data.Repositories
     {
         public async Task<bool> IsAuthorized(UserLogin userLogin)
         {  
-            UserLogin? user = await _context.UserLogin.Where(u => u.Username == userLogin.Username && u.Password == userLogin.Password).FirstOrDefaultAsync();
-            
-            return user != null;
+            var user = await _context.UserLogin.Where(u => u.Username == userLogin.Username).FirstOrDefaultAsync();
+
+            if (user == null)
+                return false;
+
+            bool isValid = BCrypt.Net.BCrypt.Verify(userLogin.Password, user.Password);
+
+            return isValid;
         }
     }
 }
